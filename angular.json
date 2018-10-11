@@ -123,5 +123,10 @@
       }
     }
   },
-  "defaultProject": "checklist-app"
+  "defaultProject": "checklist-app",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
