@@ -5,11 +5,13 @@ import { CalendarViewComponent } from './calendar-view/calendar-view.component';
 import { ManageListsComponent } from './manage-lists/manage-lists.component';
 import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
+import { MaterialModule } from '../material/material.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    MainRoutingModule
+    MainRoutingModule,
+    MaterialModule
   ],
   declarations: [
     LayoutComponent,
@@ -17,6 +19,7 @@ import { MainRoutingModule } from './main-routing.module';
     CalendarViewComponent,
     ManageListsComponent
   ]
+
 })
 export class MainModule {
 
