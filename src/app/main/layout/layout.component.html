@@ -1,1 +1,20 @@
-<p>layout works!</p>
+<mat-toolbar class="flex-space-between toolbar">
+  <mat-icon (click)="drawer.toggle()">menu</mat-icon>
+  <div class="logout-wrapper flex-space-between">
+    <mat-icon>account_circle</mat-icon>
+    <button>logout</button>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav class="sidenav" mode="side" #drawer></mat-sidenav>
+  <mat-sidenav-content>
+    <div class="component-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<footer>
+  <small>&copy; 2018 <a href="https://github.com/YG92">Yulia Galiulina</a></small>
+</footer>
