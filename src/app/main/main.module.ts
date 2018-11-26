@@ -6,6 +6,9 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { LayoutComponent } from './layout/layout.component';
+import { SidenavComponent } from './layout/sidenav/sidenav.component';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
 @NgModule({
   imports: [
@@ -17,7 +20,10 @@ import { LayoutComponent } from './layout/layout.component';
     LayoutComponent,
     TaskListComponent,
     CalendarViewComponent,
-    ManageListsComponent
+    ManageListsComponent,
+    SidenavComponent,
+    ToolbarComponent,
+    FooterComponent
   ]
 
 })

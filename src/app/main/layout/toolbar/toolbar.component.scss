@@ -1,0 +1,16 @@
+$dark-grey: #212121;
+
+.toolbar {
+  background-color: $dark-grey;
+  color: inherit;
+  button {
+    min-width: 75px;
+    font-size: 16px;
+    border: none;
+    background-color: inherit;
+    color: inherit;
+    &:hover {
+      color: darken(white, 30%);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.sidenav-container {
+  flex: 1;
+  background-color: inherit;
+  color: white;
+  .sidenav {
+    padding: 1rem;
+    width: 300px;
+    color: inherit;
+    background-color: #424242;
+  }
+  .component-wrapper {
+    padding: 1rem;
+  }
+}

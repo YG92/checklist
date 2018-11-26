@@ -8,38 +8,7 @@ $dark-grey: #212121;
   background-color: $grey;
 }
 
-.toolbar {
-  background-color: $dark-grey;
-  color: inherit;
-  button {
-    min-width: 75px;
-    font-size: 16px;
-    border: none;
-    background-color: inherit;
-    color: inherit;
-    &:hover {
-      color: darken(white, 30%);
-    }
-  }
-}
 
-.sidenav-container {
-  flex: 1;
-  background-color: inherit;
-  color: white;
-  .sidenav {
-    padding: 1rem;
-    width: 300px;
-    color: inherit;
-    background-color: #424242;
-  }
-  .component-wrapper {
-    padding: 1rem;
-  }
-}
 
-footer {
-  padding: 1rem;
-  background-color: $dark-grey;
-}
+
 
