@@ -1,8 +1,6 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav class="sidenav" mode="side" #drawer></mat-sidenav>
-  <mat-sidenav-content>
-    <div class="component-wrapper">
-      <router-outlet></router-outlet>
-    </div>
+<mat-sidenav-container class="sidenav">
+  <mat-sidenav class="sidenav__menu" mode="side" #drawer></mat-sidenav>
+  <mat-sidenav-content class="sidenav__content">
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

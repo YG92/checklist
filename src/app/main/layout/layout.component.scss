@@ -1,14 +1,13 @@
-$grey: #303030;
-$dark-grey: #212121;
-
 :host {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: $grey;
 }
 
-
-
+.sidenav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
 

@@ -1,14 +1,17 @@
-.sidenav-container {
+@import "../../../styles/palette.scss";
+
+.sidenav {
   flex: 1;
   background-color: inherit;
   color: white;
-  .sidenav {
-    padding: 1rem;
+  &__menu {
+    padding: 20px;
     width: 300px;
+    height: 100%;
     color: inherit;
-    background-color: #424242;
+    background-color: $light-grey;
   }
-  .component-wrapper {
-    padding: 1rem;
+  &__content {
+    padding: 20px;
   }
 }

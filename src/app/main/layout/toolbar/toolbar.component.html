@@ -1,7 +1,7 @@
-<mat-toolbar class="flex-space-between toolbar">
-  <mat-icon (click)="toggleSidenav()">menu</mat-icon>
-  <div class="logout-wrapper flex-space-between">
+<mat-toolbar class="toolbar">
+  <mat-icon (click)="toggleSidenav()" class="toolbar__menu-icon">menu</mat-icon>
+  <div class="toolbar__logout">
     <mat-icon>account_circle</mat-icon>
-    <button>logout</button>
+    <button class="toolbar__button">logout</button>
   </div>
 </mat-toolbar>
