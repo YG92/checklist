@@ -12,7 +12,7 @@ const routes: Routes = [
     children: [
       { path: '', component: TaskListComponent },
       { path: 'calendar-view', component: CalendarViewComponent },
-      { path: 'manage', component: ManageListsComponent }
+      { path: 'manage-lists', component: ManageListsComponent }
     ]
   }
 ];
