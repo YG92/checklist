@@ -2,8 +2,16 @@
 
 .footer {
   margin-top: auto;
-  padding: 20px;
   background-color: $dark-grey;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  position: relative;
+
+  &__rights {
+    margin-left: 20px;
+  }
 
   &__link {
     color: inherit;
@@ -11,5 +19,11 @@
     &:hover {
       text-decoration: underline;
     }
+  }
+}
+
+@media (max-width: 599px) {
+  .footer {
+    height: 50px;
   }
 }

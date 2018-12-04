@@ -3,6 +3,8 @@
 .toolbar {
   background-color: $dark-grey;
   color: inherit;
+  position: relative;
+  z-index: 10;
 
   &__menu-icon {
     cursor: pointer;

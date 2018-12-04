@@ -9,6 +9,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { ListItemComponent } from './list-item/list-item.component';
 
 @NgModule({
   imports: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     ManageListsComponent,
     SidenavComponent,
     ToolbarComponent,
-    FooterComponent
+    FooterComponent,
+    ListItemComponent
   ]
 
 })

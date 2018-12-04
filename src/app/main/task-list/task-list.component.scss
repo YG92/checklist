@@ -1,0 +1,11 @@
+.task-list {
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  margin-top: 50px;
+
+  &__item {
+    margin: 10px 0;
+    display: block;
+  }
+}
