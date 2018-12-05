@@ -1,11 +1,26 @@
 .task-list {
   width: 80%;
-  max-width: 500px;
   margin: auto;
   margin-top: 50px;
+  max-width: 500px;
+
+  &--menu-opened {
+    white-space: nowrap;
+    margin-left: 50px;
+    margin-right: 50px;
+    width: auto;
+  }
 
   &__item {
     margin: 10px 0;
     display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  .task-list--menu-opened {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

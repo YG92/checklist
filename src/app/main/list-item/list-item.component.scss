@@ -6,6 +6,7 @@
   align-items: center;
   background-color: $light-grey;
   overflow-x: hidden;
+
   &:hover {
     background-color: #393838
   }
@@ -13,8 +14,4 @@
   &__text {
     margin-left: 15px;
   }
-}
-
-@media (min-width: 400px) {
-  min-width: 300px;
 }
