@@ -1,13 +1,11 @@
 .task-list {
   width: 80%;
   margin: auto;
-  margin-top: 50px;
-  max-width: 500px;
+  max-width: 550px;
 
-  &--menu-opened {
+  &_menu-opened {
     white-space: nowrap;
     margin-left: 50px;
-    margin-right: 50px;
     width: auto;
   }
 
@@ -15,11 +13,25 @@
     margin: 10px 0;
     display: block;
   }
+
+  &__input {
+    border: none;
+    background-color: inherit;
+    caret-color: white;
+    color: white;
+    font-size: inherit;
+    width: 100%;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
 }
 
 @media (min-width: 900px) {
-  .task-list--menu-opened {
-    max-width: 500px;
+  .task-list_menu-opened {
+    max-width: 550px;
     margin-left: auto;
     margin-right: auto;
   }

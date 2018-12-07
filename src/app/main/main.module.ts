@@ -9,11 +9,13 @@ import { LayoutComponent } from './layout/layout.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { ListItemComponent } from './list-item/list-item.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ListCardComponent } from './list-card/list-card.component';
 
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     MainRoutingModule,
     MaterialModule
   ],
@@ -25,7 +27,7 @@ import { ListItemComponent } from './list-item/list-item.component';
     SidenavComponent,
     ToolbarComponent,
     FooterComponent,
-    ListItemComponent
+    ListCardComponent
   ]
 
 })

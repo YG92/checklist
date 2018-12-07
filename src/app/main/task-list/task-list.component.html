@@ -1,3 +1,10 @@
-<div class="task-list" [ngClass]="{ 'task-list--menu-opened':  sidenavOpened }">
-  <app-list-item class="task-list__item" *ngFor="let task of tasks" [item]="task"></app-list-item>
+<div class="task-list" [ngClass]="{ 'task-list_menu-opened':  sidenavOpened }">
+  <app-list-card class="task-list__item">
+    <input type="text" autofocus
+           class="task-list__input"
+           placeholder="add a task"
+           [formControl]="newTask"
+           (keyup.enter)="onSubmit()">
+  </app-list-card>
+  <app-list-card class="task-list__item" *ngFor="let task of tasks">{{ task.text }}</app-list-card>
 </div>

@@ -1,23 +1,14 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { AuthModule } from './auth/auth.module';
-import { MainModule } from './main/main.module';
-import { MaterialModule } from './material/material.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    AuthModule,
-    MainModule,
+    CoreModule,
     AppRoutingModule
   ],
   providers: [],

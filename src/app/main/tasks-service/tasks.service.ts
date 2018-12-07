@@ -6,10 +6,28 @@ import { Task } from '../task';
 })
 export class TasksService {
 
-  tasks: Task[] = Array.from({ length: 10 }, (x, i) => ({ id: i, text: `Task placeholder ${i}` }));
+  tasks: Task[] = this.getTasks();
   constructor() { }
 
-  getTasks() {
-    return this.tasks;
+  getTasks(): Task[] {
+    return JSON.parse(localStorage.getItem('tasks')) || [];
+  }
+
+  setTasks(): void {
+    localStorage.setItem('tasks', JSON.stringify(this.tasks));
+  }
+
+  initTask(val): Task {
+    return { id: this.tasks.length, text: val, checked: false };
+  }
+
+  addTask(taskText): void {
+    this.tasks = [this.initTask(taskText), ...this.tasks];
+    this.setTasks();
+  }
+
+  updateTasks(task): void {
+    this.tasks = this.tasks.map(i => i.id === task.id ? task : i);
+    this.setTasks();
   }
 }
