@@ -1,7 +1,7 @@
 @import "../../styles/palette.scss";
 
 .list-item {
-  padding: 10px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   background-color: $light-grey;
@@ -10,9 +10,7 @@
     background-color: #393838
   }
 
-  &__text {
-    margin-left: 15px;
+  &__content {
     width: 100%;
-    overflow: hidden;
   }
 }

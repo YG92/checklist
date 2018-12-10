@@ -35,4 +35,9 @@ export class TaskListComponent implements OnInit {
     this.newTask.reset('');
   }
 
+  onCheck(ev, task): void {
+    task.checked = ev.checked;
+    this.taskSrv.updateTasks(task);
+  }
+
 }

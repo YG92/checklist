@@ -6,5 +6,8 @@
            [formControl]="newTask"
            (keyup.enter)="onSubmit()">
   </app-list-card>
-  <app-list-card class="task-list__item" *ngFor="let task of tasks">{{ task.text }}</app-list-card>
+  <app-list-card class="task-list__item" *ngFor="let task of tasks">
+    <mat-checkbox [checked]="task.checked" (change)="onCheck($event, task)"></mat-checkbox>
+    <span class="task-list__text">{{ task.text }}</span>
+  </app-list-card>
 </div>
