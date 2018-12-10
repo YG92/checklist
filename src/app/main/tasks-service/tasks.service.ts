@@ -1,33 +1,42 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../task';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TasksService {
 
+  private tasksUpdatedSource = new Subject<Task[]>();
+  tasksUpdated$ = this.tasksUpdatedSource.asObservable();
   tasks: Task[] = this.getTasks();
   constructor() { }
 
-  getTasks(): Task[] {
+  private getTasks(): Task[] {
     return JSON.parse(localStorage.getItem('tasks')) || [];
   }
 
-  setTasks(): void {
+  private setTasks(): void {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-  initTask(val): Task {
+  private initTask(val): Task {
     return { id: this.tasks.length, text: val, checked: false };
+  }
+
+  private updateTasks(): void {
+    this.tasksUpdatedSource.next(this.tasks);
+    this.setTasks();
   }
 
   addTask(taskText): void {
     this.tasks = [this.initTask(taskText), ...this.tasks];
-    this.setTasks();
+    this.updateTasks();
   }
 
-  updateTasks(task): void {
+  updateTaskStatus(task): void {
     this.tasks = this.tasks.map(i => i.id === task.id ? task : i);
-    this.setTasks();
+    this.updateTasks();
   }
+
 }

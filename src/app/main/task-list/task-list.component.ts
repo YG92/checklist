@@ -11,7 +11,7 @@ import { FormControl } from '@angular/forms';
 })
 export class TaskListComponent implements OnInit {
 
-  tasks: Task[];
+  tasks: Task[] = this.taskSrv.tasks;
   sidenavOpened = false;
   newTask = new FormControl('');
 
@@ -22,22 +22,17 @@ export class TaskListComponent implements OnInit {
 
   ngOnInit() {
     this.sidenavSrv.sidenavToggled$.subscribe(() => this.sidenavOpened = !this.sidenavOpened);
-    this.updateTasks();
-  }
-
-  private updateTasks() {
-    this.tasks = this.taskSrv.tasks;
+    this.taskSrv.tasksUpdated$.subscribe(tasks => this.tasks = tasks);
   }
 
   onSubmit(): void {
     this.taskSrv.addTask(this.newTask.value);
-    this.updateTasks();
     this.newTask.reset('');
   }
 
   onCheck(ev, task): void {
     task.checked = ev.checked;
-    this.taskSrv.updateTasks(task);
+    this.taskSrv.updateTaskStatus(task);
   }
 
 }
