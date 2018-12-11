@@ -39,4 +39,12 @@ export class TasksService {
     this.updateTasks();
   }
 
+  refreshTasks(): void {
+    this.tasks = this.tasks.map(task => {
+      task.checked = false;
+      return task;
+    });
+    this.updateTasks();
+  }
+
 }
