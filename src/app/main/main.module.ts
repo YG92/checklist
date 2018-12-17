@@ -10,7 +10,7 @@ import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { ListCardComponent } from './list-card/list-card.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   imports: [
@@ -27,7 +27,7 @@ import { ListCardComponent } from './list-card/list-card.component';
     SidenavComponent,
     ToolbarComponent,
     FooterComponent,
-    ListCardComponent
+    CardComponent
   ]
 
 })
