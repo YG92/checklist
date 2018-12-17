@@ -25,10 +25,17 @@
     color: white;
     font-size: inherit;
     width: 100%;
+    font-style: italic;
+    margin-left: 10px;
 
     &:focus {
       outline: none;
     }
+  }
+
+  &__edit-icon {
+    margin-left: auto;
+    cursor: pointer;
   }
 
 }

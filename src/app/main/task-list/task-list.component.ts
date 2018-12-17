@@ -13,10 +13,12 @@ import { Subscription } from 'rxjs';
 export class TaskListComponent implements OnInit, OnDestroy {
 
   tasks: Task[] = this.taskSrv.tasks;
+  selectedTask: Task;
   sidenavOpened = false;
   newTask = new FormControl('');
   sidenavSubscr: Subscription;
   tasksSubscr: Subscription;
+  taskToEdit: FormControl;
 
   constructor(
     private taskSrv: TasksService,
@@ -33,9 +35,20 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.newTask.reset('');
   }
 
-  onCheck(ev, task): void {
-    task.checked = ev.checked;
-    this.taskSrv.updateTaskStatus(task);
+  checkTask(ev, task): void {
+    task = { ...task, checked: true };
+    this.taskSrv.editTask(task);
+  }
+
+  editTask(task): void {
+    task = { ...task, text: this.taskToEdit.value };
+    this.taskSrv.editTask(task);
+    this.selectedTask = null;
+  }
+
+  selectTask(task): void {
+    this.selectedTask = task;
+    this.taskToEdit = new FormControl(this.selectedTask.text);
   }
 
   ngOnDestroy() {

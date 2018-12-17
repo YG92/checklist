@@ -34,7 +34,7 @@ export class TasksService {
     this.updateTasks();
   }
 
-  updateTaskStatus(task): void {
+  editTask(task): void {
     this.tasks = this.tasks.map(i => i.id === task.id ? task : i);
     this.updateTasks();
   }

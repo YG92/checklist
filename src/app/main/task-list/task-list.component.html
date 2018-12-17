@@ -1,13 +1,19 @@
 <div class="task-list" [ngClass]="{ 'task-list_menu-opened':  sidenavOpened }">
   <app-list-card class="task-list__item">
-    <input type="text" autofocus
+    <input type="text"
            class="task-list__input"
            placeholder="add a task"
            [formControl]="newTask"
            (keyup.enter)="onSubmit()">
   </app-list-card>
   <app-list-card class="task-list__item" *ngFor="let task of tasks">
-    <mat-checkbox [checked]="task.checked" (change)="onCheck($event, task)"></mat-checkbox>
-    <span class="task-list__text">{{ task.text }}</span>
+    <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
+    <span class="task-list__text" *ngIf="selectedTask?.id !== task.id">{{ task.text }}</span>
+    <input class="task-list__input"
+           autofocus
+           *ngIf="selectedTask?.id === task.id"
+           [formControl]="taskToEdit"
+           (keyup.enter)="editTask(task)">
+    <mat-icon class="task-list__edit-icon" (click)="selectTask(task)">edit</mat-icon>
   </app-list-card>
 </div>
