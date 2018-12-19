@@ -4,6 +4,7 @@ import { Task } from '../task';
 import { ToggleSidenavService } from '../layout/sidenav/toggle-sidenav/toggle-sidenav.service';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
+import { MatCheckboxChange } from '@angular/material';
 
 @Component({
   selector: 'app-task-list',
@@ -18,7 +19,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   newTask = new FormControl('');
   sidenavSubscr: Subscription;
   tasksSubscr: Subscription;
-  taskToEdit: FormControl;
+  taskToEdit: FormControl = new FormControl('');
 
   constructor(
     private taskSrv: TasksService,
@@ -35,20 +36,18 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.newTask.reset('');
   }
 
-  checkTask(ev, task): void {
-    task = { ...task, checked: true };
-    this.taskSrv.editTask(task);
+  checkTask(ev: MatCheckboxChange, task: Task): void {
+    this.taskSrv.updateTask('checked', ev.checked, task);
   }
 
-  editTask(task): void {
-    task = { ...task, text: this.taskToEdit.value };
-    this.taskSrv.editTask(task);
+  editTask(task: Task): void {
+    this.taskSrv.updateTask('text', this.taskToEdit.value, task);
     this.selectedTask = null;
   }
 
-  selectTask(task): void {
+  selectTask(task: Task): void {
     this.selectedTask = task;
-    this.taskToEdit = new FormControl(this.selectedTask.text);
+    this.taskToEdit.setValue(this.selectedTask.text);
   }
 
   ngOnDestroy() {
