@@ -6,7 +6,7 @@
            [formControl]="newTask"
            (keyup.enter)="onSubmit()">
   </app-list-card>
-  <app-list-card class="task-list__item" *ngFor="let task of tasks">
+  <app-list-card class="task-list__item" *ngFor="let task of tasks; trackBy: trackByTasks">
     <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
     <span class="task-list__text" *ngIf="selectedTask?.id !== task.id">{{ task.text }}</span>
     <input class="task-list__input"

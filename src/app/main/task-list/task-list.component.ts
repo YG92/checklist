@@ -31,6 +31,8 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.tasksSubscr = this.taskSrv.tasksUpdated$.subscribe(tasks => this.tasks = tasks);
   }
 
+  trackByTasks(index: number, task: Task): number { return task.id; }
+
   onSubmit(): void {
     this.taskSrv.addTask(this.newTask.value);
     this.newTask.reset('');
