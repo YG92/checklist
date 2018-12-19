@@ -1,2 +1,34 @@
+@import "../../styles/palette";
 
+.layout {
+  box-sizing: border-box;
+  color: white;
+  background-color: $grey;
+  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
+  &__toolbar,
+  &__footer {
+    position: relative;
+    z-index: 10;
+  }
+
+  &__sidenav {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    margin: -64px 0 -50px;
+    padding: 64px 0 50px;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+    will-change: overflow;
+  }
+
+}
+
+@media (max-width: 599px) {
+  .layout__sidenav {
+    margin: -56px 0 -45px;
+    padding: 56px 0 45px;
+  }
+}

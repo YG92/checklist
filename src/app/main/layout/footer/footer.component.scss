@@ -1,13 +1,10 @@
 @import "../../../styles/palette.scss";
 
 .footer {
-  margin-top: auto;
   background-color: $dark-grey;
   height: 50px;
   display: flex;
   align-items: center;
-  z-index: 10;
-  position: relative;
 
   &__rights {
     margin-left: 20px;

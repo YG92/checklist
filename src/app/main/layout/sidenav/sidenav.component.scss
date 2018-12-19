@@ -4,15 +4,7 @@
   background-color: inherit;
   color: white;
   display: flex;
-  height: 100vh;
-  margin: -64px 0 -50px;
-  padding: 64px 0 50px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  backface-visibility: hidden;
-  will-change: overflow;
-  box-sizing: border-box;
+  height: 100%;
 
   &__menu {
     display: flex;
@@ -21,7 +13,7 @@
     height: 100%;
     color: inherit;
     background-color: $light-grey;
-    padding: 85px 0 64px 20px;
+    padding: 10px;
   }
 
   &__link {
@@ -45,9 +37,3 @@
   }
 }
 
-@media (max-width: 599px) {
-  .sidenav {
-    margin: -56px 0 -45px;
-    padding: 56px 0 45px;
-  }
-}
