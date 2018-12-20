@@ -1,15 +1,15 @@
-@import "../../../styles/palette";
+@import "../../../../styles/palette";
 
 .toolbar {
   background-color: $dark-grey;
   color: inherit;
+  justify-content: space-between;
 
   &__icon {
     cursor: pointer;
   }
 
-  &__logout {
-    margin-left: auto;
+  &__icons {
     display: flex;
     align-items: center;
   }

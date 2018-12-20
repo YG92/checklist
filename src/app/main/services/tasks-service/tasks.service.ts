@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Task } from '../task';
+import { Task } from '../../task';
 import { Subject } from 'rxjs';
 import { StorageService } from '../storage-service/storage.service';
 
@@ -8,9 +8,15 @@ import { StorageService } from '../storage-service/storage.service';
 })
 export class TasksService {
 
+  private tasksLeftSource = new Subject<number>();
+  tasksLeft$ = this.tasksLeftSource.asObservable();
+
   private tasksUpdatedSource = new Subject<Task[]>();
   tasksUpdated$ = this.tasksUpdatedSource.asObservable();
+
   tasks: Task[] = this.storageSrv.getTasks();
+  tasksLeft: number = this.tasks.filter(task => !task.checked).length;
+
   constructor(private storageSrv: StorageService) { }
 
   private initTask(text: string): Task {
@@ -30,6 +36,12 @@ export class TasksService {
       return i;
     });
     this.updateTasks();
+  }
+
+  checkTask(checked: boolean, task: Task) {
+    this.updateTask('checked', checked, task);
+    this.tasksLeft = checked ? this.tasksLeft - 1 : this.tasksLeft + 1;
+    this.tasksLeftSource.next(this.tasksLeft);
   }
 
   addTask(taskText: string): void {

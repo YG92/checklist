@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { TasksService } from '../tasks-service/tasks.service';
-import { Task } from '../task';
-import { ToggleSidenavService } from '../layout/sidenav/toggle-sidenav/toggle-sidenav.service';
+import { TasksService } from '../../services/tasks-service/tasks.service';
+import { Task } from '../../task';
+import { ToggleSidenavService } from '../page-layout/sidenav/toggle-sidenav/toggle-sidenav.service';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MatCheckboxChange } from '@angular/material';
@@ -39,7 +39,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   }
 
   checkTask(ev: MatCheckboxChange, task: Task): void {
-    this.taskSrv.updateTask('checked', ev.checked, task);
+    this.taskSrv.checkTask(ev.checked, task);
   }
 
   editTask(task: Task): void {

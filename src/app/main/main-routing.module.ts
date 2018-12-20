@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskListComponent } from './task-list/task-list.component';
-import { CalendarViewComponent } from './calendar-view/calendar-view.component';
-import { ManageListsComponent } from './manage-lists/manage-lists.component';
-import { LayoutComponent } from './layout/layout.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
+import { ManageListsComponent } from './components/manage-lists/manage-lists.component';
+import { LayoutComponent } from './components/page-layout/layout.component';
 
 const routes: Routes = [
   {
