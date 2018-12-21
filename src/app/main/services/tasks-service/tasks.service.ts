@@ -15,9 +15,13 @@ export class TasksService {
   tasksUpdated$ = this.tasksUpdatedSource.asObservable();
 
   tasks: Task[] = this.storageSrv.getTasks();
-  tasksLeft: number = this.tasks.filter(task => !task.checked).length;
+  tasksLeft: number = this.getLeftTasksNum();
 
   constructor(private storageSrv: StorageService) { }
+
+  private getLeftTasksNum(): number {
+    return this.tasks.filter(task => !task.checked).length;
+  }
 
   private initTask(text: string): Task {
     return { id: this.tasks.length, text: text, checked: false };
@@ -47,6 +51,7 @@ export class TasksService {
   addTask(taskText: string): void {
     this.tasks = [this.initTask(taskText), ...this.tasks];
     this.updateTasks();
+    this.tasksLeftSource.next(++this.tasksLeft);
   }
 
   refreshTasks(): void {
@@ -55,6 +60,8 @@ export class TasksService {
       return task;
     });
     this.updateTasks();
+    this.tasksLeft = this.getLeftTasksNum();
+    this.tasksLeftSource.next(this.tasksLeft);
   }
 
 }

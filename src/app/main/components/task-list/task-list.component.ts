@@ -20,6 +20,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   sidenavSubscr: Subscription;
   tasksSubscr: Subscription;
   taskToEdit: FormControl = new FormControl('');
+  showInput = false;
 
   constructor(
     private taskSrv: TasksService,
@@ -36,6 +37,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.taskSrv.addTask(this.newTask.value);
     this.newTask.reset('');
+    this.showInput = false;
   }
 
   checkTask(ev: MatCheckboxChange, task: Task): void {
@@ -50,6 +52,10 @@ export class TaskListComponent implements OnInit, OnDestroy {
   selectTask(task: Task): void {
     this.selectedTask = task;
     this.taskToEdit.setValue(this.selectedTask.text);
+  }
+
+  refreshTasks(): void {
+    this.taskSrv.refreshTasks();
   }
 
   ngOnDestroy() {

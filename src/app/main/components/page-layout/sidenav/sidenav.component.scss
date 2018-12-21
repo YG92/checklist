@@ -30,10 +30,7 @@
 
   &__content {
     width: 100%;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: auto;
+    overflow: hidden;
   }
 }
 

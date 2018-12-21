@@ -1,10 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/purple-green.css";
+@import "app/styles/palette";
 
 body {
   margin: 0;
 }
 
+::-webkit-scrollbar {
+  width: 1px;
+}
 
-
-
+::-webkit-scrollbar-thumb {
+  background: $green;
+  border-radius: 10px;
+}

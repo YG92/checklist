@@ -1,29 +1,45 @@
-<div class="task-list" [ngClass]="{ 'task-list_menu-opened':  sidenavOpened }">
+<div class="tasks-page" [ngClass]="{ 'tasks-page_menu-opened':  sidenavOpened }">
 
-  <app-list-card class="task-list__item">
-    <input
-      type="text"
-      class="task-list__input"
-      placeholder="add a task"
-      [formControl]="newTask"
-      (keyup.enter)="onSubmit()">
-  </app-list-card>
+  <mat-icon class="tasks-page__menu-icon tasks-page__icon" [matMenuTriggerFor]="menu">more_horiz</mat-icon>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="refreshTasks()">
+      <mat-icon>refresh</mat-icon>
+      refresh tasks
+    </button>
+    <button mat-menu-item (click)="showInput = true">
+      <mat-icon>add</mat-icon>
+      add task
+    </button>
+  </mat-menu>
 
-  <app-list-card
-    class="task-list__item"
-    [ngClass]="{ 'task-list__item_checked': task.checked }"
-    *ngFor="let task of tasks; trackBy: trackByTasks">
-    <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
-    <span class="task-list__text" *ngIf="selectedTask?.id !== task.id">{{ task.text }}</span>
+  <div class="tasks-page__list">
 
-    <input
-      class="task-list__input"
-      autofocus
-      *ngIf="selectedTask?.id === task.id"
-      [formControl]="taskToEdit"
-      (keyup.enter)="editTask(task)">
+    <app-list-card class="tasks-page__item" *ngIf="showInput">
+      <input
+        type="text"
+        class="tasks-page__input"
+        placeholder="add a task"
+        [formControl]="newTask"
+        (keyup.enter)="onSubmit()">
+      <mat-icon class="tasks-page__icon" (click)="showInput = false">cancel</mat-icon>
+    </app-list-card>
 
-    <mat-icon class="task-list__edit-icon" (click)="selectTask(task)">edit</mat-icon>
-  </app-list-card>
+    <app-list-card
+      class="tasks-page__item"
+      [ngClass]="{ 'tasks-page__item_checked': task.checked }"
+      *ngFor="let task of tasks; trackBy: trackByTasks">
+      <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
+      <span class="tasks-page__text" *ngIf="selectedTask?.id !== task.id">{{ task.text }}</span>
+
+      <input
+        class="tasks-page__input"
+        autofocus
+        *ngIf="selectedTask?.id === task.id"
+        [formControl]="taskToEdit"
+        (keyup.enter)="editTask(task)">
+
+      <mat-icon class="tasks-page__edit-icon tasks-page__icon" (click)="selectTask(task)">edit</mat-icon>
+    </app-list-card>
+  </div>
 
 </div>

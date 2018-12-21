@@ -24,8 +24,4 @@ export class ToolbarComponent implements OnInit {
     this.sidenavSrv.toggleSidenav();
   }
 
-  refreshTasks(): void {
-    this.taskSrv.refreshTasks();
-  }
-
 }
