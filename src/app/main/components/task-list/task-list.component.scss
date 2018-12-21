@@ -12,6 +12,14 @@
   &__item {
     margin: 10px 0;
     display: block;
+
+    &_checked {
+      opacity: .1;
+    }
+
+    &:hover .task-list__edit-icon {
+      display: block;
+    }
   }
 
   &__text {
@@ -36,6 +44,10 @@
   &__edit-icon {
     margin-left: auto;
     cursor: pointer;
+    display: none;
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
   }
 
 }
