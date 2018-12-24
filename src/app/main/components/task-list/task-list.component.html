@@ -26,7 +26,7 @@
 
     <app-list-card
       class="tasks-page__item"
-      [ngClass]="{ 'tasks-page__item_checked': task.checked }"
+      [ngClass]="{ 'tasks-page__item_checked': task.checked && selectedTask?.id !== task.id }"
       *ngFor="let task of tasks; trackBy: trackByTasks">
       <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
       <span class="tasks-page__text" *ngIf="selectedTask?.id !== task.id">{{ task.text }}</span>

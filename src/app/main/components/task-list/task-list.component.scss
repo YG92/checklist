@@ -33,6 +33,10 @@
 
     &_checked {
       opacity: .1;
+
+      &:hover {
+        opacity: 1;
+      }
     }
 
     &:hover .tasks-page__edit-icon {
