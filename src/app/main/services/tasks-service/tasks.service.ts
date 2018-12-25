@@ -9,11 +9,9 @@ import { StorageService } from '../storage-service/storage.service';
 export class TasksService {
 
   private tasksLeftSource = new Subject<number>();
-  tasksLeft$ = this.tasksLeftSource.asObservable();
-
   private tasksUpdatedSource = new Subject<Task[]>();
+  tasksLeft$ = this.tasksLeftSource.asObservable();
   tasksUpdated$ = this.tasksUpdatedSource.asObservable();
-
   tasks: Task[] = this.storageSrv.getTasks();
   tasksLeft: number = this.getLeftTasksNum();
 
@@ -24,7 +22,11 @@ export class TasksService {
   }
 
   private initTask(text: string): Task {
-    return { id: this.tasks.length, text: text, checked: false };
+    return {
+      id: this.tasks.length,
+      text: text,
+      checked: false
+    };
   }
 
   private updateTasks(): void {
@@ -33,12 +35,7 @@ export class TasksService {
   }
 
   updateTask(key: string, value: boolean | string, task: Task): void {
-    this.tasks = this.tasks.map(i => {
-      if (i.id === task.id) {
-        return { ...task, [key]: value };
-      }
-      return i;
-    });
+    this.tasks = this.tasks.map(i => i.id === task.id ? { ...task, [key]: value } : i);
     this.updateTasks();
   }
 
@@ -55,10 +52,7 @@ export class TasksService {
   }
 
   refreshTasks(): void {
-    this.tasks = this.tasks.map(task => {
-      task = {...task, checked: false };
-      return task;
-    });
+    this.tasks = this.tasks.map(task => ({ ...task, checked: false }));
     this.updateTasks();
     this.tasksLeft = this.getLeftTasksNum();
     this.tasksLeftSource.next(this.tasksLeft);

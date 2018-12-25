@@ -4,7 +4,7 @@ import { Task } from '../../task';
 import { ToggleSidenavService } from '../page-layout/sidenav/toggle-sidenav/toggle-sidenav.service';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
-import { MatCheckboxChange } from '@angular/material';
+import { MatCheckboxChange, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-task-list',
@@ -19,17 +19,25 @@ export class TaskListComponent implements OnInit, OnDestroy {
   newTask = new FormControl('');
   sidenavSubscr: Subscription;
   tasksSubscr: Subscription;
+  tasksLeft: Subscription;
   taskToEdit: FormControl = new FormControl('');
   showInput = false;
 
   constructor(
     private taskSrv: TasksService,
-    private sidenavSrv: ToggleSidenavService
+    private sidenavSrv: ToggleSidenavService,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit() {
     this.sidenavSubscr = this.sidenavSrv.sidenavToggled$.subscribe(() => this.sidenavOpened = !this.sidenavOpened);
     this.tasksSubscr = this.taskSrv.tasksUpdated$.subscribe(tasks => this.tasks = tasks);
+    this.tasksLeft = this.taskSrv.tasksLeft$.subscribe(tasks => {
+      if (tasks === 0) {
+        setTimeout(() => this.openSnackBar(), 400);
+        setTimeout(() => this.refreshTasks(), 1500);
+      }
+    });
   }
 
   trackByTasks(index: number, task: Task): number { return task.id; }
@@ -58,9 +66,14 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.taskSrv.refreshTasks();
   }
 
+  openSnackBar() {
+    this.snackBar.open('All tasks are done!', '', { duration: 2000 });
+  }
+
   ngOnDestroy() {
     this.sidenavSubscr.unsubscribe();
     this.tasksSubscr.unsubscribe();
+    this.tasksLeft.unsubscribe();
   }
 
 }
