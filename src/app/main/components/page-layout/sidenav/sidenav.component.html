@@ -1,11 +1,13 @@
 <mat-sidenav-container class="sidenav">
-  <mat-sidenav class="sidenav__menu" mode="side" #drawer>
-    <a
-      [routerLink]="item.path"
-      *ngFor="let item of items"
-      class="sidenav__link">
-      {{ item.name }}
-    </a>
+  <mat-sidenav mode="side" #drawer>
+    <div class="sidenav__menu">
+      <a
+        [routerLink]="item.path"
+        *ngFor="let item of items"
+        class="sidenav__link">
+        {{ item.name }}
+      </a>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav__content">
     <router-outlet></router-outlet>

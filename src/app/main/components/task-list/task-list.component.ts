@@ -35,7 +35,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.tasksLeft = this.taskSrv.tasksLeft$.subscribe(tasks => {
       if (tasks === 0) {
         setTimeout(() => this.openSnackBar(), 400);
-        setTimeout(() => this.refreshTasks(), 1500);
+        setTimeout(() => this.refreshTasks(), 1400);
       }
     });
   }
