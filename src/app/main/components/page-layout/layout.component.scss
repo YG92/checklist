@@ -2,12 +2,9 @@
 
 .layout {
   box-sizing: border-box;
-  color: white;
   background-color: $grey;
-  font-family: Roboto, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 
-  &__toolbar,
-  &__footer {
+  &__toolbar {
     position: relative;
     z-index: 10;
   }

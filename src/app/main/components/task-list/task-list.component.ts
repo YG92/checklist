@@ -5,6 +5,7 @@ import { ToggleSidenavService } from '../page-layout/sidenav/toggle-sidenav/togg
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { MatCheckboxChange, MatSnackBar } from '@angular/material';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-task-list',
@@ -68,6 +69,10 @@ export class TaskListComponent implements OnInit, OnDestroy {
 
   openSnackBar() {
     this.snackBar.open('All tasks are done!', '', { duration: 2000 });
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
   }
 
   ngOnDestroy() {

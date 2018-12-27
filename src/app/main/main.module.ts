@@ -8,7 +8,6 @@ import { MaterialModule } from '../material/material.module';
 import { LayoutComponent } from './components/page-layout/layout.component';
 import { SidenavComponent } from './components/page-layout/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/page-layout/toolbar/toolbar.component';
-import { FooterComponent } from './components/page-layout/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 
@@ -27,7 +26,6 @@ import { SharedModule } from '../shared/shared.module';
     ManageListsComponent,
     SidenavComponent,
     ToolbarComponent,
-    FooterComponent
   ]
 
 })

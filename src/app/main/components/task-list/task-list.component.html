@@ -12,7 +12,7 @@
     </button>
   </mat-menu>
 
-  <div class="tasks-page__list">
+  <div class="tasks-page__list" cdkDropList (cdkDropListDropped)="drop($event)">
 
     <app-list-card class="tasks-page__item" *ngIf="showInput">
       <input
@@ -25,9 +25,10 @@
     </app-list-card>
 
     <app-list-card
+      *ngFor="let task of tasks; trackBy: trackByTasks"
+      cdkDrag
       class="tasks-page__item"
-      [ngClass]="{ 'tasks-page__item_checked': task.checked && selectedTask?.id !== task.id }"
-      *ngFor="let task of tasks; trackBy: trackByTasks">
+      [ngClass]="{ 'tasks-page__item_checked': task.checked && selectedTask?.id !== task.id }">
       <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
       <span class="tasks-page__text" *ngIf="selectedTask?.id !== task.id">{{ task.text }}</span>
 

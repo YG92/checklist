@@ -1,3 +1,5 @@
+@import "../../../styles/palette";
+
 .tasks-page {
   width: 80%;
   margin: auto;
@@ -30,12 +32,15 @@
   &__item {
     margin-bottom: 10px;
     display: block;
+    background-color: $light-grey;
+    &:active {
+      cursor: move;
+    }
 
     &_checked {
-      opacity: .12;
-
-      &:hover {
-        opacity: 1;
+      background-color: #333232;
+      .tasks-page__text {
+        text-decoration: line-through;
       }
     }
 
@@ -93,3 +98,21 @@
     margin-top: 30px;
   }
 }
+
+// drag and drop styles
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-preview {
+  opacity: 1;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
