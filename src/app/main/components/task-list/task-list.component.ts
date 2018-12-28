@@ -22,7 +22,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   tasksSubscr: Subscription;
   tasksLeft: Subscription;
   taskToEdit: FormControl = new FormControl('');
-  showInput = false;
+  showInput = true;
 
   constructor(
     private taskSrv: TasksService,
@@ -36,7 +36,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.tasksLeft = this.taskSrv.tasksLeft$.subscribe(tasks => {
       if (tasks === 0) {
         setTimeout(() => this.openSnackBar(), 400);
-        setTimeout(() => this.refreshTasks(), 1400);
+        setTimeout(() => this.refreshTasks(), 1100);
       }
     });
   }
@@ -46,7 +46,6 @@ export class TaskListComponent implements OnInit, OnDestroy {
   onSubmit(): void {
     this.taskSrv.addTask(this.newTask.value);
     this.newTask.reset('');
-    this.showInput = false;
   }
 
   checkTask(ev: MatCheckboxChange, task: Task): void {
