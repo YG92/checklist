@@ -3,5 +3,5 @@
     <mat-icon (click)="refreshTasks()" matTooltip="refresh tasks">refresh</mat-icon>
     <mat-icon (click)="toggleInput()" matTooltip="add a task">add</mat-icon>
   </div>
-  <span>Tasks left ({{ tasksNumber }})</span>
+  <span *ngIf="showText()">Tasks left ({{ tasksNumber }})</span>
 </div>

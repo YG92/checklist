@@ -32,22 +32,6 @@
   &__icon {
     cursor: pointer;
   }
-
-  &__input {
-    border: none;
-    background-color: inherit;
-    caret-color: white;
-    color: white;
-    font-size: inherit;
-    width: 100%;
-    font-style: italic;
-    margin-left: 10px;
-    background-color: $light-grey;
-
-    &:focus {
-      outline: none;
-    }
-  }
 }
 
 

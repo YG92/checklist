@@ -25,4 +25,8 @@ export class TaskToolbarComponent implements OnInit {
     this.inputToggled.emit(null);
   }
 
+  showText(): boolean {
+    return this.taskSrv.tasks.length !== 0;
+  }
+
 }

@@ -4,17 +4,17 @@
     cdkDrag
     class="tasks-list__item"
     matTooltip="Drag to reorder"
-    [color]="task.checked ? '#333232' : '#424242'">
+    [color]="getColor(task)">
     <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
     <span
       class="tasks-list__text"
       *ngIf="selectedTask?.id !== task.id"
-      [ngClass]="{ 'tasks-list__text_line-through': task.checked && selectedTask?.id !== task.id }">
+      [ngClass]="getClass(task)">
       {{ task.text }}
     </span>
 
     <input
-      class="tasks-list__input"
+      class="input"
       autofocus
       *ngIf="selectedTask?.id === task.id"
       [formControl]="taskToEdit"

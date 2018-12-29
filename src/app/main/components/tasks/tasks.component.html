@@ -4,7 +4,7 @@
   <app-card class="tasks-page__card" *ngIf="showInput" [color]="'#424242'">
     <input
       type="text"
-      class="tasks-page__input"
+      class="input"
       placeholder="add a task"
       [formControl]="newTask"
       (keyup.enter)="onSubmit()">

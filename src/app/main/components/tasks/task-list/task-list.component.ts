@@ -59,6 +59,14 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.taskSrv.onDrop(this.tasks);
   }
 
+  getColor(task): string {
+    return task.checked ? '#333232' : '#424242';
+  }
+
+  getClass(task) {
+    return { 'tasks-list__text_line-through': task.checked };
+  }
+
   ngOnDestroy() {
     this.tasksSubscr.unsubscribe();
     this.tasksLeft.unsubscribe();

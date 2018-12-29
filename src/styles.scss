@@ -8,6 +8,21 @@ body {
   color: white;
 }
 
+.input {
+  border: none;
+  background-color: inherit;
+  caret-color: white;
+  color: white;
+  font-size: inherit;
+  width: 100%;
+  font-style: italic;
+  margin-left: 10px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 1px;
 }
