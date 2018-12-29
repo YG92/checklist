@@ -329,6 +329,8 @@ MIT
 
 @angular/material/snack-bar
 
+@angular/material/tooltip
+
 @angular/router
 MIT
 
@@ -342,8 +344,6 @@ MIT
 MIT
 
 @angular/material/checkbox
-
-@angular/material/menu
 
 zone.js
 MIT
