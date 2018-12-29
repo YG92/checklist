@@ -29,6 +29,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.tasksLeft = this.taskSrv.tasksLeft$.subscribe(tasks => {
       if (tasks === 0) {
         setTimeout(() => this.openSnackBar(), 400);
+        setTimeout(() => this.taskSrv.refreshTasks(), 1400);
       }
     });
   }
@@ -55,7 +56,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
-    this.taskSrv.onDragAndDrop(this.tasks);
+    this.taskSrv.onDrop(this.tasks);
   }
 
   ngOnDestroy() {

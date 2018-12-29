@@ -51,7 +51,7 @@ export class TasksService {
     this.tasksLeftSource.next(++this.tasksLeft);
   }
 
-  onDragAndDrop(tasks: Task[]): void {
+  onDrop(tasks: Task[]): void {
     this.tasks = [...tasks];
     this.storageSrv.setTasks(this.tasks);
   }
