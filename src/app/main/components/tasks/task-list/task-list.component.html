@@ -1,0 +1,25 @@
+<div class="tasks-list" cdkDropList (cdkDropListDropped)="drop($event)">
+  <app-card
+    *ngFor="let task of tasks; trackBy: trackByTasks"
+    cdkDrag
+    class="tasks-list__item"
+    matTooltip="Drag to reorder"
+    [color]="task.checked ? '#333232' : '#424242'">
+    <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
+    <span
+      class="tasks-list__text"
+      *ngIf="selectedTask?.id !== task.id"
+      [ngClass]="{ 'tasks-list__text_line-through': task.checked && selectedTask?.id !== task.id }">
+      {{ task.text }}
+    </span>
+
+    <input
+      class="tasks-list__input"
+      autofocus
+      *ngIf="selectedTask?.id === task.id"
+      [formControl]="taskToEdit"
+      (keyup.enter)="editTask(task)">
+
+    <mat-icon class="tasks-list__edit-icon tasks-list__icon" (click)="selectTask(task)">edit</mat-icon>
+  </app-card>
+</div>

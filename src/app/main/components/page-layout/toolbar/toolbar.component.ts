@@ -9,15 +9,9 @@ import { TasksService } from '../../../services/tasks-service/tasks.service';
 })
 export class ToolbarComponent implements OnInit {
 
-  tasksNumber: number = this.taskSrv.tasksLeft;
-
-  constructor(
-    private sidenavSrv: ToggleSidenavService,
-    private taskSrv: TasksService
-  ) {}
+  constructor(private sidenavSrv: ToggleSidenavService) {}
 
   ngOnInit() {
-    this.taskSrv.tasksLeft$.subscribe(tasks => this.tasksNumber = tasks);
   }
 
   toggleSidenav(): void {

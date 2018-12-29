@@ -1,0 +1,11 @@
+.toolbar {
+  border-bottom: 1px solid grey;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__icons mat-icon {
+    cursor: pointer;
+  }
+}

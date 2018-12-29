@@ -1,0 +1,60 @@
+@import "../../../styles/palette";
+
+.tasks-page {
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+
+  &_menu-opened {
+    white-space: nowrap;
+    margin-left: 50px;
+    width: auto;
+  }
+
+  &__toolbar {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__list {
+    flex: 1;
+    display: flex;
+  }
+
+  &__card {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__icon {
+    cursor: pointer;
+  }
+
+  &__input {
+    border: none;
+    background-color: inherit;
+    caret-color: white;
+    color: white;
+    font-size: inherit;
+    width: 100%;
+    font-style: italic;
+    margin-left: 10px;
+    background-color: $light-grey;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+
+@media (min-width: 900px) {
+  .tasks-page_menu-opened {
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
