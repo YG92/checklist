@@ -28,6 +28,7 @@
       *ngFor="let task of tasks; trackBy: trackByTasks"
       cdkDrag
       class="tasks-page__item"
+      matTooltip="Drag to reorder"
       [ngClass]="{ 'tasks-page__item_checked': task.checked && selectedTask?.id !== task.id }">
       <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
       <span class="tasks-page__text" *ngIf="selectedTask?.id !== task.id">{{ task.text }}</span>

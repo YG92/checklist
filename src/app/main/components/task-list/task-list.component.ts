@@ -67,11 +67,12 @@ export class TaskListComponent implements OnInit, OnDestroy {
   }
 
   openSnackBar() {
-    this.snackBar.open('All tasks are done!', '', { duration: 2000 });
+    this.snackBar.open('All tasks are done!', '', { duration: 1500 });
   }
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
+    this.taskSrv.onDragAndDrop(this.tasks);
   }
 
   ngOnDestroy() {

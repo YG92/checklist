@@ -51,6 +51,11 @@ export class TasksService {
     this.tasksLeftSource.next(++this.tasksLeft);
   }
 
+  onDragAndDrop(tasks: Task[]): void {
+    this.tasks = [...tasks];
+    this.storageSrv.setTasks(this.tasks);
+  }
+
   refreshTasks(): void {
     this.tasks = this.tasks.map(task => ({ ...task, checked: false }));
     this.updateTasks();
