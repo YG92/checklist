@@ -20,6 +20,19 @@
       [formControl]="taskToEdit"
       (keyup.enter)="editTask(task)">
 
-    <mat-icon class="tasks-list__edit-icon tasks-list__icon" (click)="selectTask(task)">edit</mat-icon>
+    <div class="tasks-list__icons">
+      <mat-icon
+        matTooltip="edit"
+        class="tasks-list__edit-icon tasks-list__icon"
+        (click)="selectTask(task)">
+        edit
+      </mat-icon>
+      <mat-icon
+        class="tasks-list__icon"
+        matTooltip="delete"
+        (click)="deleteTask(task)">
+        cancel
+      </mat-icon>
+    </div>
   </app-card>
 </div>

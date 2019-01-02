@@ -8,7 +8,7 @@
       placeholder="add a task"
       [formControl]="newTask"
       (keyup.enter)="onSubmit()">
-    <mat-icon class="tasks-page__icon" (click)="showInput = false">cancel</mat-icon>
+    <mat-icon class="tasks-page__icon" (click)="showInput = false" matTooltip="cancel">cancel</mat-icon>
   </app-card>
 
   <app-task-list class="tasks-page__list"></app-task-list>

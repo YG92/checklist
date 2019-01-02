@@ -51,6 +51,12 @@ export class TasksService {
     this.tasksLeftSource.next(++this.tasksLeft);
   }
 
+  deleteTask(task: Task): void {
+    this.tasks = this.tasks.filter(t => t.id !== task.id);
+    this.updateTasks();
+    this.tasksLeftSource.next(--this.tasksLeft);
+  }
+
   onDrop(tasks: Task[]): void {
     this.tasks = [...tasks];
     this.storageSrv.setTasks(this.tasks);

@@ -20,8 +20,8 @@
       cursor: move;
     }
 
-    &:hover .tasks-list__edit-icon {
-      display: block;
+    &:hover .tasks-list__icons {
+      display: flex;
     }
   }
 
@@ -33,14 +33,17 @@
     }
   }
 
-  &__edit-icon {
-    margin-left: auto;
+  &__icons {
     display: none;
+    width: auto;
+    margin-left: auto;
+  }
+
+  &__icon {
     height: 19px;
     width: 19px;
     font-size: 19px;
   }
-
 }
 
 // drag and drop styles

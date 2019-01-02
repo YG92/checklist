@@ -27,7 +27,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.tasksSubscr = this.taskSrv.tasksUpdated$.subscribe(tasks => this.tasks = tasks);
     this.tasksLeft = this.taskSrv.tasksLeft$.subscribe(tasks => {
-      if (tasks === 0) {
+      if (tasks === 0 && this.taskSrv.tasks.length !== 0) {
         setTimeout(() => this.openSnackBar(), 400);
         setTimeout(() => this.taskSrv.refreshTasks(), 1400);
       }
@@ -50,7 +50,11 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.taskToEdit.setValue(this.selectedTask.text);
   }
 
-  openSnackBar() {
+  deleteTask(task: Task) {
+    this.taskSrv.deleteTask(task);
+  }
+
+  openSnackBar(): void {
     this.snackBar.open('All tasks are done!', '', { duration: 1500 });
   }
 
