@@ -5,34 +5,27 @@
     class="tasks-list__item"
     matTooltip="Drag to reorder"
     [color]="getColor(task)">
+
     <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
-    <span
-      class="tasks-list__text"
-      *ngIf="selectedTask?.id !== task.id"
-      [ngClass]="getClass(task)">
+
+    <span class="tasks-list__text" *ngIf="selectedTask?.id !== task.id" [ngClass]="getClass(task)">
       {{ task.text }}
     </span>
 
-    <input
-      class="input"
+    <input class="input"
       autofocus
       *ngIf="selectedTask?.id === task.id"
       [formControl]="taskToEdit"
-      (keyup.enter)="editTask(task)">
+      (keyup.enter)="editTask(task)"/>
 
     <div class="tasks-list__icons">
-      <mat-icon
-        matTooltip="edit"
-        class="tasks-list__edit-icon tasks-list__icon"
-        (click)="selectTask(task)">
+      <mat-icon matTooltip="edit" class="tasks-list__edit-icon tasks-list__icon" (click)="selectTask(task)">
         edit
       </mat-icon>
-      <mat-icon
-        class="tasks-list__icon"
-        matTooltip="delete"
-        (click)="deleteTask(task)">
+      <mat-icon class="tasks-list__icon" matTooltip="delete" (click)="deleteTask(task)">
         cancel
       </mat-icon>
     </div>
+
   </app-card>
 </div>
