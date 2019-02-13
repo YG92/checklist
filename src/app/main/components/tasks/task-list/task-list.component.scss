@@ -1,6 +1,6 @@
 @import "../../../../styles/palette";
 
-.tasks-list {
+.task-list {
   overflow: auto;
   height: 100%;
   width: 100%;
@@ -20,7 +20,7 @@
       cursor: move;
     }
 
-    &:hover .tasks-list__icons {
+    &:hover .task-list__icons {
       display: flex;
     }
   }
@@ -44,6 +44,10 @@
     height: 19px;
     width: 19px;
     font-size: 19px;
+  }
+
+  &__drag-handle {
+    cursor: move;
   }
 }
 
