@@ -3,10 +3,10 @@
     *ngFor="let task of tasks; trackBy: trackByTasks"
     cdkDrag
     class="task-list__item"
-    [color]="getColor(task)">
+    [color]="getColor(task.checked)">
     <div>
       <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
-      <span class="task-list__text" *ngIf="selectedTask?.id !== task.id" [ngClass]="getClass(task)">
+      <span class="task-list__text" *ngIf="selectedTask?.id !== task.id" [ngClass]="getClass(task.checked)">
       {{ task.text }}
     </span>
     </div>

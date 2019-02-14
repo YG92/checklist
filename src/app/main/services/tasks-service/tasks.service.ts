@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Task } from '../../task';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { StorageService } from '../storage-service/storage.service';
 
 @Injectable({
@@ -10,28 +10,24 @@ export class TasksService {
 
   private tasksLeftSource = new Subject<number>();
   private tasksUpdatedSource = new Subject<Task[]>();
-  tasksLeft$ = this.tasksLeftSource.asObservable();
-  tasksUpdated$ = this.tasksUpdatedSource.asObservable();
-  tasks: Task[] = this.storageSrv.getTasks();
+  tasksLeft$: Observable<number> = this.tasksLeftSource.asObservable();
+  tasksUpdated$: Observable<Task[]> = this.tasksUpdatedSource.asObservable();
+  tasks: Task[] = StorageService.getTasks();
   tasksLeft: number = this.getLeftTasksNum();
 
-  constructor(private storageSrv: StorageService) { }
+  constructor() { }
 
   private getLeftTasksNum(): number {
     return this.tasks.filter(task => !task.checked).length;
   }
 
   private initTask(text: string): Task {
-    return {
-      id: this.tasks.length,
-      text: text,
-      checked: false
-    };
+    return new Task(this.tasks.length, text, false);
   }
 
   private updateTasks(): void {
     this.tasksUpdatedSource.next(this.tasks);
-    this.storageSrv.setTasks(this.tasks);
+    StorageService.setTasks(this.tasks);
   }
 
   updateTask(key: string, value: boolean | string, task: Task): void {
@@ -39,7 +35,7 @@ export class TasksService {
     this.updateTasks();
   }
 
-  checkTask(checked: boolean, task: Task) {
+  checkTask(checked: boolean, task: Task): void {
     this.updateTask('checked', checked, task);
     this.tasksLeft = checked ? this.tasksLeft - 1 : this.tasksLeft + 1;
     this.tasksLeftSource.next(this.tasksLeft);
@@ -59,7 +55,7 @@ export class TasksService {
 
   onDrop(tasks: Task[]): void {
     this.tasks = [...tasks];
-    this.storageSrv.setTasks(this.tasks);
+    StorageService.setTasks(this.tasks);
   }
 
   refreshTasks(): void {

@@ -8,22 +8,22 @@ import { fixtureTasks } from '../../fixture';
 export class StorageService {
 
   constructor() {
-    this.initTasks();
+    StorageService.initTasks();
   }
 
-  initTasks(): void {
-    const tasks = this.getTasks();
-    if (!tasks) {
-      this.setTasks(fixtureTasks);
-    }
-  }
-
-  getTasks(): Task[] {
+  static getTasks(): Task[] {
     return JSON.parse(localStorage.getItem('tasks'));
   }
 
-  setTasks(tasks): void {
+  static setTasks(tasks: Task[]): void {
     localStorage.setItem('tasks', JSON.stringify(tasks));
+  }
+
+  static initTasks(): void {
+    const tasks = StorageService.getTasks();
+    if (!tasks) {
+      StorageService.setTasks(fixtureTasks);
+    }
   }
 
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ToggleSidenavService } from '../sidenav/toggle-sidenav/toggle-sidenav.service';
-import { TasksService } from '../../../services/tasks-service/tasks.service';
 
 @Component({
   selector: 'app-toolbar',

@@ -50,7 +50,7 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.taskToEdit.setValue(this.selectedTask.text);
   }
 
-  deleteTask(task: Task) {
+  deleteTask(task: Task): void {
     this.taskSrv.deleteTask(task);
   }
 
@@ -58,17 +58,17 @@ export class TaskListComponent implements OnInit, OnDestroy {
     this.snackBar.open('All tasks are done!', '', { duration: 1500 });
   }
 
-  drop(event: CdkDragDrop<string[]>) {
+  drop(event: CdkDragDrop<string[]>): void {
     moveItemInArray(this.tasks, event.previousIndex, event.currentIndex);
     this.taskSrv.onDrop(this.tasks);
   }
 
-  getColor(task): string {
-    return task.checked ? '#333232' : '#424242';
+  getColor(checked: boolean): string {
+    return checked ? '#333232' : '#424242';
   }
 
-  getClass(task) {
-    return { 'tasks-list__text_line-through': task.checked };
+  getClass(checked: boolean): { [key: string]: boolean } {
+    return { 'task-list__text_line-through': checked };
   }
 
   ngOnDestroy() {

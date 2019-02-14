@@ -1,10 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ToggleSidenavService } from './toggle-sidenav/toggle-sidenav.service';
-
-interface Item {
-  name: string;
-  path: string;
-}
+import { Item } from './sidenav-item';
 
 @Component({
   selector: 'app-sidenav',
@@ -15,9 +11,9 @@ export class SidenavComponent implements OnInit {
 
   @ViewChild('drawer') drawer: any;
   items: Item[] = [
-    { name: 'task list', path: ''},
-    { name: 'calendar view', path: 'calendar-view'},
-    { name: 'manage lists', path: 'manage-lists' }
+    new Item('task list', ''),
+    new Item('calendar view', 'calendar-view'),
+    new Item('manage lists', 'manage-lists'),
   ];
 
   constructor(private sidenavSrv: ToggleSidenavService) {}

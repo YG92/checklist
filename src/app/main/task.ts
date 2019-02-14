@@ -1,5 +1,7 @@
 export class Task {
-  id: number;
-  text: string;
-  checked: boolean;
+  constructor(
+    public id: number,
+    public text: string,
+    public checked: boolean
+  ) {}
 }

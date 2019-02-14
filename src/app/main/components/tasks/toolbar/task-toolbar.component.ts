@@ -9,7 +9,7 @@ import { TasksService } from '../../../services/tasks-service/tasks.service';
 export class TaskToolbarComponent implements OnInit {
 
   tasksNumber: number = this.taskSrv.tasksLeft;
-  @Output() inputToggled = new EventEmitter();
+  @Output() inputToggled: EventEmitter<any> = new EventEmitter();
 
   constructor(private taskSrv: TasksService) {}
 
