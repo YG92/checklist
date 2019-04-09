@@ -15,7 +15,6 @@
   &__item {
     margin-bottom: 10px;
     display: block;
-    background-color: $light-grey;
     &:active {
       cursor: move;
     }
@@ -48,6 +47,7 @@
 
   &__drag-handle {
     cursor: move;
+    font-size: 20px;
   }
 }
 

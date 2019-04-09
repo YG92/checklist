@@ -1,7 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { TasksService } from '../../services/tasks-service/tasks.service';
-import { ToggleSidenavService } from '../page-layout/sidenav/toggle-sidenav/toggle-sidenav.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -18,11 +17,9 @@ export class TasksComponent implements OnInit, OnDestroy {
 
   constructor(
     private taskSrv: TasksService,
-    private sidenavSrv: ToggleSidenavService
   ) {}
 
   ngOnInit() {
-    this.sidenavState = this.sidenavSrv.sidenavToggled$.subscribe(() => this.sidenavOpened = !this.sidenavOpened);
   }
 
   onSubmit(): void {

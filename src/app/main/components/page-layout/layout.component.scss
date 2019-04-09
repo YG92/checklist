@@ -3,29 +3,10 @@
 .layout {
   box-sizing: border-box;
   background-color: $grey;
+  min-height: 100vh;
 
   &__toolbar {
     position: relative;
     z-index: 10;
-  }
-
-  &__sidenav {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    overflow: hidden;
-    margin-top: -64px;
-    padding-top: 64px;
-    box-sizing: border-box;
-    backface-visibility: hidden;
-    will-change: overflow;
-  }
-
-}
-
-@media (max-width: 599px) {
-  .layout__sidenav {
-    margin-top: -56px;
-    padding-top: 56px;
   }
 }

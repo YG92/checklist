@@ -6,7 +6,6 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { MaterialModule } from '../material/material.module';
 import { LayoutComponent } from './components/page-layout/layout.component';
-import { SidenavComponent } from './components/page-layout/sidenav/sidenav.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { TasksComponent } from './components/tasks/tasks.component';
@@ -26,7 +25,6 @@ import { ToolbarComponent } from './components/page-layout/toolbar/toolbar.compo
     TaskListComponent,
     CalendarViewComponent,
     ManageListsComponent,
-    SidenavComponent,
     ToolbarComponent,
     TaskToolbarComponent,
     TasksComponent,

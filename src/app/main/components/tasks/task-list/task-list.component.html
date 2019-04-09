@@ -1,9 +1,7 @@
-<div class="task-list" cdkDropList (cdkDropListDropped)="drop($event)">
+<div class="task-list">
   <app-card
     *ngFor="let task of tasks; trackBy: trackByTasks"
-    cdkDrag
-    class="task-list__item"
-    [color]="getColor(task.checked)">
+    class="task-list__item">
     <div>
       <mat-checkbox [checked]="task.checked" (change)="checkTask($event, task)"></mat-checkbox>
       <span class="task-list__text" *ngIf="selectedTask?.id !== task.id" [ngClass]="getClass(task.checked)">
@@ -24,6 +22,5 @@
         cancel
       </mat-icon>
     </div>
-    <mat-icon cdkDragHandle matTooltip="drag" class="task-list__drag-handle">drag_indicator</mat-icon>
   </app-card>
 </div>
